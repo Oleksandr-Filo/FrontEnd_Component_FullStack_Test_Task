@@ -1,5 +1,5 @@
 export interface Calculation {
   id: number;
-  enteredNumber: number;
+  enteredValue: number;
   medians: number[];
 }

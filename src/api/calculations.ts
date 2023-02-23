@@ -5,6 +5,10 @@ export const getCalculations = () => {
   return client.get<Calculation[]>('/calculations');
 };
 
-export const createCalculation = (enteredNumber: string) => {
-  return client.post<Calculation>('/calculations', { enteredNumber });
+export const createCalculation = (enteredValue: string) => {
+  return client.post<Calculation>('/calculations', { enteredValue });
+};
+
+export const clearHistory = (ids: number[]) => {
+  return client.deleteAll('/calculations', { ids });
 };
