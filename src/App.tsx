@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import {
   Divider,
@@ -8,20 +8,23 @@ import {
   Box,
   Paper,
   TextField,
+  Alert,
 } from '@mui/material/';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Calculation } from './types/Calculation';
 
 const calculationsFromAPI: Calculation[] = [
   { id: 1, enteredNumber: 10, medians: [3, 5] },
-  { id: 1, enteredNumber: 10, medians: [7] },
+  { id: 2, enteredNumber: 10, medians: [7] },
 ];
 
 export const App: React.FC = () => {
   const [calculations, setCalculations] = useState<Calculation[]>(calculationsFromAPI);
-  const [enteredNumber, setEnteredNumber] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [enteredNumber, setEnteredNumber] = useState('');
+  const [isAdding, setIsAdding] = useState(false);
+  const [isClearing, setIsClearing] = useState(false);
+  const [inputError, setInputError] = useState('');
+  const [loadingError, setLoadingError] = useState('Can\'t load history');
 
   return (
     <Box
@@ -43,18 +46,18 @@ export const App: React.FC = () => {
 
         <form onSubmit={(event) => event.preventDefault()}>
           <TextField
-            error={!!error}
+            error={!!inputError}
             label="Please, enter a number"
             type="number"
             name="number"
             value={enteredNumber}
             onChange={(event) => setEnteredNumber(
-              +event.target.value || null
+              event.target.value || ''
             )}
             variant="outlined"
             helperText={(
-              error
-                ? `${error}`
+              inputError
+                ? `${inputError}`
                 : ''
             )}
             autoComplete="off"
@@ -65,7 +68,7 @@ export const App: React.FC = () => {
           />
 
           <LoadingButton
-            loading={isLoading}
+            loading={isAdding}
             variant="contained"
             type="submit"
           >
@@ -78,7 +81,7 @@ export const App: React.FC = () => {
         <Divider />
 
         <LoadingButton
-          loading={isLoading}
+          loading={isClearing}
           variant="outlined"
           disabled={calculations.length === 0}
           sx={{
@@ -89,6 +92,25 @@ export const App: React.FC = () => {
         </LoadingButton>
 
         <Divider />
+
+        <Alert
+          severity="error"
+          sx={{
+            mt: 1,
+          }}
+        >
+          {loadingError}
+        </Alert>
+
+        <Alert
+          severity="warning"
+          sx={{
+            mt: 1,
+            textAlign: "start"
+          }}
+        >
+          History of previous calculations is empty
+        </Alert>
 
         {calculations.map(calculation => (
           <Card
