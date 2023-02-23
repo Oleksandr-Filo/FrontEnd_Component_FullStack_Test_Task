@@ -9,6 +9,6 @@ export const createCalculation = (enteredValue: string) => {
   return client.post<Calculation>('/calculations', { enteredValue });
 };
 
-export const clearHistory = (ids: number[]) => {
-  return client.deleteAll('/calculations', { ids });
+export const deleteCalculation = (calculationId: number) => {
+  return client.delete(`/calculations/${calculationId}`);
 };

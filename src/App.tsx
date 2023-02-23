@@ -12,7 +12,7 @@ import {
 } from '@mui/material/';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Calculation } from './types/Calculation';
-import { createCalculation, clearHistory, getCalculations } from './api/calculations';
+import { createCalculation, deleteCalculation, getCalculations } from './api/calculations';
 
 export const App: React.FC = () => {
   const [calculations, setCalculations] = useState<Calculation[]>([]);
@@ -54,11 +54,11 @@ export const App: React.FC = () => {
     }
 
     setIsAdding(true);
+    setInputError('');
 
     try {
-      const createdCalculation = await createCalculation(enteredValue);
-
-      setCalculations(prev => [createdCalculation, ...prev]);
+      await createCalculation(enteredValue);
+      await loadHistory();
       setEnteredValue('');
     } catch (error) {
       setInputError('Unable to add a calculation');
@@ -74,18 +74,29 @@ export const App: React.FC = () => {
     setInputError('');
   };
 
-  const handleClickClearHistory = async () => {
-    setIsClearing(true);
-
+  const removeCalculation = async (calculationId: number) => {
     try {
-      await clearHistory(calculations.map(calculation => calculation.id));
-      
-      setCalculations([]);
+      setIsClearing(true);
+      setHistoryError('');
+
+      await deleteCalculation(calculationId);
+
+      setCalculations(prev => prev.filter(
+        calculation => calculation.id !== calculationId
+      ));
     } catch (error) {
-      setHistoryError('Unable to clear history');
+      console.log(error);
+      
+      setHistoryError('Unable to delete a calculation');
     } finally {
       setIsClearing(false);
     }
+  };
+
+  const handleClickClearHistory = () => {
+    calculations.forEach(calculation => {
+      removeCalculation(calculation.id);
+    });
   };
 
   if (historyError) {
@@ -193,16 +204,16 @@ export const App: React.FC = () => {
               key={calculation.id}
             >
               <CardContent>
-                <Typography
-                  sx={{ fontWeight: 'bold', mb: 1.5 }}
-                >
-                  {`Entered number - ${calculation.enteredValue}`}
-                </Typography>
-
-                <Typography variant="body1">
+                <Typography variant="body1" sx={{ fontWeight: 'bold', mb: 1.5 }}>
                   {calculation.medians.length > 1
                     ? `Medians - ${calculation.medians}`
                     : `Median - ${calculation.medians}`}
+                </Typography>
+
+                <Typography
+                  sx={{ fontWeight: 'bold' }}
+                >
+                  {`Entered number - ${calculation.enteredValue}`}
                 </Typography>
               </CardContent>
             </Card>
