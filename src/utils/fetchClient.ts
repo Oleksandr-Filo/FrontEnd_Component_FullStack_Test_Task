@@ -22,6 +22,10 @@ function request<T>(
         throw new Error();
       }
 
+      if (response.status === 204) {
+        return Promise.resolve();
+      }
+
       return response.json();
     });
 }
@@ -29,5 +33,5 @@ function request<T>(
 export const client = {
   get: <T>(url: string) => request<T>(url),
   post: <T>(url: string, data: any) => request<T>(url, 'POST', data),
-  delete: (url: string) => request(url, 'DELETE'),
+  deleteAll: (url: string, data: any) => request(url, 'DELETE', data),
 };
