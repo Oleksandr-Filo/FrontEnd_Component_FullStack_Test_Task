@@ -5,7 +5,10 @@ APP which allow you input a number and receive the median prime number(s) of the
 The result will be shown at the top of history of previous calculations.
 Also you are able to clear history.
 
-## How to work with. Steps:
+## How to work with. 
+First of all you have to run server from `https://github.com/Oleksandr-Filo/backend_component_fullstack_test_task`.
+
+After the server is running, follow these steps:
 1. Download or clone repository. `git clone git@github.com:Oleksandr-Filo/frontend_component_fullstack_test_task.git`.
 2. Open project folder with code editor (VS Code, WebStorm, other).
 3. Use a 14th version of Node.js.

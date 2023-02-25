@@ -9,7 +9,7 @@ interface Props {
   isClearing: boolean;
   isDataLoaded: boolean;
   historyError: string;
-  onClearHistory: () => void;
+  onClearHistory: () => Promise<void>;
 };
 
 export const HistoryOfCalculations: React.FC<Props> = React.memo(

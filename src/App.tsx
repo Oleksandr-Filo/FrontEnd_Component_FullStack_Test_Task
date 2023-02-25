@@ -35,17 +35,17 @@ export const App: React.FC = () => {
       await deleteAllCalculations(
         calculations.map(calculation => calculation.id)
       );
-
-      setCalculations([]);
+      
+      await loadHistory();
     } catch (error) {
       setHistoryError('Unable to clear history');
     } finally {
       setIsClearing(false);
     }
-  }, []);
+  }, [calculations]);
 
   if (historyError) {
-    setTimeout(() => setHistoryError(''), 7000);
+    setTimeout(() => setHistoryError(''), 2000);
   }
 
   return (
