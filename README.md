@@ -6,7 +6,7 @@ The result will be shown at the top of history of previous calculations.
 Also you are able to clear history.
 
 ## How to work with. 
-First of all you have to run server from `https://github.com/Oleksandr-Filo/backend_component_fullstack_test_task`.
+❗️ First of all you have to run server from `https://github.com/Oleksandr-Filo/backend_component_fullstack_test_task`.
 
 After the server is running, follow these steps:
 1. Download or clone repository. `git clone git@github.com:Oleksandr-Filo/frontend_component_fullstack_test_task.git`.
