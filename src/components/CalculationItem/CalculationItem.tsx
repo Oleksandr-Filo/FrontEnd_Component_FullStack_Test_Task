@@ -19,6 +19,7 @@ export const CalculationItem: React.FC<Props> = React.memo(
           bgcolor: 'lightblue',
           color: 'info.contrastText',
         }}
+        data-testid="calculation"
       >
         <CardContent>
           <Typography variant="body1" sx={{ fontWeight: 'bold', mb: 1.5 }}>

@@ -2,11 +2,13 @@ import React, { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import { Box, Paper } from '@mui/material/';
 import { Calculation } from './types/Calculation';
-import { deleteAllCalculations, getCalculations } from './api/calculations';
+import { calculationsAPI } from './api/calculations';
 import { NewCalculationForm } from './components/NewCalculationForm';
 import { HistoryOfCalculations } from './components/HistoryOfCalculations';
 
 export const App: React.FC = () => {
+  const { deleteAllCalculations, getCalculations } = calculationsAPI;
+  
   const [calculations, setCalculations] = useState<Calculation[]>([]);
   const [isClearing, setIsClearing] = useState(false);
   const [historyError, setHistoryError] = useState('');

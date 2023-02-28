@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField } from '@mui/material/';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { createCalculation } from '../../api/calculations';
+import { calculationsAPI } from '../../api/calculations';
 
 interface Props {
   loadHistory: () => Promise<void>;
@@ -9,6 +9,8 @@ interface Props {
 
 export const NewCalculationForm: React.FC<Props> = React.memo(
   ({ loadHistory }) => {
+    const { createCalculation } = calculationsAPI;
+
     const [enteredValue, setEnteredValue] = useState('');
     const [isAdding, setIsAdding] = useState(false);
     const [inputError, setInputError] = useState('');
@@ -17,7 +19,7 @@ export const NewCalculationForm: React.FC<Props> = React.memo(
       event.preventDefault();
 
       if (!enteredValue) {
-        setInputError('Please, enter a number');
+        setInputError('You have to enter a number');
 
         return;
       }
