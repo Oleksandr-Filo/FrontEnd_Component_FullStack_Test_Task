@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/frontend_component/static/css/main.2fed614a.css",
+    "main.js": "/frontend_component/static/js/main.88184c70.js",
+    "index.html": "/frontend_component/index.html",
+    "main.2fed614a.css.map": "/frontend_component/static/css/main.2fed614a.css.map",
+    "main.88184c70.js.map": "/frontend_component/static/js/main.88184c70.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fed614a.css",
+    "static/js/main.88184c70.js"
+  ]
+}
