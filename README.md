@@ -1,5 +1,7 @@
 # The median prime number(s) getter App
 
+❗️❗️❗️ First of all you have to run server locally from `https://github.com/Oleksandr-Filo/backend_component` ❗️❗️❗️.
+
 ## DEMO LINK
 [DEMO LINK](https://Oleksandr-Filo.github.io/frontend_component)
 
@@ -8,9 +10,18 @@ APP which allow you input a number and receive the median prime number(s) of the
 The result will be shown at the top of history of previous calculations.
 Also you are able to clear history.
 
-## How to work with. 
-❗️ First of all you have to run server from `https://github.com/Oleksandr-Filo/backend_component`.
+Here are some examples of calculations:
+- If number = 10, the set of prime numbers less than 10 is [2,3,5,7], and so the medians are [3,5];
+- If number = 18, the set of prime numbers less than 18 is [2,3,5,7,11,13,17], and so the median is [7];
 
+## Technologies used:
+- React;
+- TypeScript;
+- Fetch;
+- Material UI;
+- React testing library;
+
+## How to run an application locally 
 After the server is running, follow these steps:
 1. Download or clone repository. `git clone git@github.com:Oleksandr-Filo/frontend_component.git`.
 2. Open project folder with code editor (VS Code, WebStorm, other).
