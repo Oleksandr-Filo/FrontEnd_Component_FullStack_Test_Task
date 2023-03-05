@@ -1,7 +1,5 @@
 # The median prime number(s) getter App
 
-❗️❗️❗️ First of all you have to run server locally from `https://github.com/Oleksandr-Filo/backend_component` ❗️❗️❗️.
-
 ## DEMO LINK
 [DEMO LINK](https://Oleksandr-Filo.github.io/frontend_component)
 
@@ -21,7 +19,13 @@ Here are some examples of calculations:
 - Material UI;
 - React testing library;
 
-## How to run an application locally 
+## BACKEND COMPONENT OF THE APP
+[BACKEND COMPONENT](https://github.com/Oleksandr-Filo/backend_component) - Node.js server that finds the median prime number(s) using the Sieve of Eratosthenes algorithm and returns array of results or an error.
+There are also endpoints for loading the history of previous calculations and deleting all calculations from the history. (Technologies used: Node.js, TypeScript, Express, Sequelize, Neon DB, Jest);
+
+## Instructions how to run an application locally 
+❗️❗️❗️ First of all you have to run server locally from `https://github.com/Oleksandr-Filo/backend_component` ❗️❗️❗️.
+
 After the server is running, follow these steps:
 1. Download or clone repository. `git clone git@github.com:Oleksandr-Filo/frontend_component.git`.
 2. Open project folder with code editor (VS Code, WebStorm, other).

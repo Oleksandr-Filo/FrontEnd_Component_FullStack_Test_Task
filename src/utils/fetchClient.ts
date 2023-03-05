@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'https://gentle-cove-92740.herokuapp.com';
 
 type RequestMethod = 'GET' | 'POST' | 'DELETE';
 
