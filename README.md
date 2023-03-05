@@ -11,6 +11,9 @@ Also you are able to clear history.
 Here are some examples of calculations:
 - If number = 10, the set of prime numbers less than 10 is [2,3,5,7], and so the medians are [3,5];
 - If number = 18, the set of prime numbers less than 18 is [2,3,5,7,11,13,17], and so the median is [7];
+<br />
+
+https://user-images.githubusercontent.com/115103012/222959643-06ab6420-cbaf-4e67-97a2-fdaf83d8d9f2.mp4
 
 ## Technologies used:
 - React;
