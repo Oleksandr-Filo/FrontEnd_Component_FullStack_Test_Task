@@ -56,10 +56,10 @@ export const App: React.FC = () => {
       }}
     >
       <Paper
+        className="paper"
         elevation={5}
         sx={{
           padding: '20px',
-          width: '30%',
           textAlign: 'center',
         }}
       >
